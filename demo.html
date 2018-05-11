@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Simple Lightbox - Responsive touch friendly Image lightbox</title>
+	<link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+	<link href='../dist/simplelightbox.min.css' rel='stylesheet' type='text/css'>
+
+	<style type="text/css">
+		/* line 1, ../sass/demo.scss */
+html, body {
+  font-family: 'Slabo 27px', serif;
+  padding: 0;
+  margin: 0;
+  background: #14FAEE;
+}
+
+/* line 8, ../sass/demo.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 12, ../sass/demo.scss */
+a {
+  color: #4ab19a;
+}
+
+/* line 16, ../sass/demo.scss */
+.clear {
+  clear: both;
+  float: none;
+  width: 100%;
+}
+
+/* line 22, ../sass/demo.scss */
+.container {
+  max-width: 1170px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* line 32, ../sass/demo.scss */
+.container .gallery a img {
+  float: left;
+  width: 20%;
+  height: auto;
+  border: 2px solid #fff;
+  -webkit-transition: -webkit-transform .15s ease;
+  -moz-transition: -moz-transform .15s ease;
+  -o-transition: -o-transform .15s ease;
+  -ms-transition: -ms-transform .15s ease;
+  transition: transform .15s ease;
+  position: relative;
+}
+/* line 46, ../sass/demo.scss */
+.container .gallery a:hover img {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  z-index: 5;
+}
+/* line 57, ../sass/demo.scss */
+.container .gallery a.big img {
+  width: 40%;
+}
+
+/* line 65, ../sass/demo.scss */
+.align-center {
+  text-align: center;
+}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		 <h1 style="font-size: 40px; font-family: cursive; margin: 30px;" class="align-center">OM GYAN KENDRA PHOTO GALLARY</h1>
+    	<div class="gallery">
+			<a href="demo/image1.jpg" class="big"><img src="demo/thumbs/thumb1.jpg" alt="" title="Beautiful Image" /></a>
+			<a href="demo/image2.jpg"><img src="demo/thumbs/thumb2.jpg" alt="" title=""/></a>
+			<a href="demo/image3.jpg"><img src="demo/thumbs/thumb3.jpg" alt="" title="Beautiful Image"/></a>
+			<a href="demo/image4.jpg"><img src="demo/thumbs/thumb4.jpg" alt="" title=""/></a>
+			<div class="clear"></div>
+
+			<a href="demo/image5.jpg"><img src="demo/thumbs/thumb5.jpg" alt="" title=""/></a>
+			<a href="demo/image6.jpg"><img src="demo/thumbs/thumb6.jpg" alt="" title=""/></a>
+			<a href="demo/image7.jpg" class="big"><img src="demo/thumbs/thumb7.jpg" alt="" title=""/></a>
+			<a href="demo/image8.jpg"><img src="demo/thumbs/thumb8.jpg" alt="" title=""/></a>
+			<div class="clear"></div>
+
+			<a href="demo/image9.jpg" class="big"><img src="demo/thumbs/thumb9.jpg" alt="" title=""/></a>
+			<a href="demo/image10.jpg"><img src="demo/thumbs/thumb10.jpg" alt="" title=""/></a>
+			<a href="demo/image11.jpg"><img src="demo/thumbs/thumb11.jpg" alt="" title=""/></a>
+			<a href="demo/image12.jpg"><img src="demo/thumbs/thumb12.jpg" alt="" title=""/></a>
+			<div class="clear"></div>
+
+		</div>
+		
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="../dist/simple-lightbox.js"></script>
+<script>
+	$(function(){
+		var $gallery = $('.gallery a').simpleLightbox();
+
+		$gallery.on('show.simplelightbox', function(){
+			console.log('Requested for showing');
+		})
+		.on('shown.simplelightbox', function(){
+			console.log('Shown');
+		})
+		.on('close.simplelightbox', function(){
+			console.log('Requested for closing');
+		})
+		.on('closed.simplelightbox', function(){
+			console.log('Closed');
+		})
+		.on('change.simplelightbox', function(){
+			console.log('Requested for change');
+		})
+		.on('next.simplelightbox', function(){
+			console.log('Requested for next');
+		})
+		.on('prev.simplelightbox', function(){
+			console.log('Requested for prev');
+		})
+		.on('nextImageLoaded.simplelightbox', function(){
+			console.log('Next image loaded');
+		})
+		.on('prevImageLoaded.simplelightbox', function(){
+			console.log('Prev image loaded');
+		})
+		.on('changed.simplelightbox', function(){
+			console.log('Image changed');
+		})
+		.on('nextDone.simplelightbox', function(){
+			console.log('Image changed to next');
+		})
+		.on('prevDone.simplelightbox', function(){
+			console.log('Image changed to prev');
+		})
+		.on('error.simplelightbox', function(e){
+			console.log('No image found, go to the next/prev');
+			console.log(e);
+		});
+	});
+</script>
+</body>
+</html>
